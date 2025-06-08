@@ -9,13 +9,15 @@
 async function getFact() {
   try {
     const factsJSON = await fetch(
-      "https://uselessfacts.jsph.pl/api/v2/facts/random?language=en"
+      "https://api.openweathermap.org/data/2.5/weather?lat=45.4211435&lon=-75.6900574&appid=fe1d80e1e103cff8c6afd190cad23fa5"
     )
-    const jsonFunFact = await factsJSON.json()
+    const jsonRandomFact = await factsJSON.json()
+    const randomFact = jsonRandomFact.text
+
 
     // output
     document.getElementById("randomFact").innerHTML =
-      "<p> Your random useless fact is: " + jsonFunFact + " .</p>"
+      "<p> Your random useless fact is: " + randomFact + " .</p>"
   }
   catch (error) {
     "<p> Sorry, the information source for these Fun Facts is not working at this moment. Try again later. </p>"
