@@ -6,23 +6,18 @@
 
 "use strict"
 
-async function getWeather() {
+async function getFact() {
   try {
-    const weatherJSON = await fetch(
-      "https://api.openweathermap.org/data/2.5/weather?lat=45.4211435&lon=-75.6900574&appid=fe1d80e1e103cff8c6afd190cad23fa5"
+    const factsJSON = await fetch(
+      "https://uselessfacts.jsph.pl/api/v2/facts/random?language=en"
     )
-    const jsonWeatherData = await weatherJSON.json()
-    const icon = jsonWeatherData.weather[0].icon
-    const kelvinTemperature = jsonWeatherData.main.temp
-    const celsuisTemperature = kelvinTemperature - 273.15
-    const celsuisTemperatureRounded = Math.round(celsuisTemperature)
+    const jsonFunFact = await factsJSON.json()
 
     // output
-    document.getElementById("weather").innerHTML =
-      "<p> The current temperature is " + celsuisTemperatureRounded + " °C.</p>"
-    document.getElementById("weather-image").innerHTML = '<img src = "https://openweathermap.org/img/wn/' + icon + '@2x.png">'
+    document.getElementById("randomFact").innerHTML =
+      "<p> Your random useless fact is: " + jsonFunFact + " .</p>"
   }
   catch (error) {
-    "<p> The weather information source is not working at this moment. </p>"
+    "<p> Sorry, the information source for these Fun Facts is not working at this moment. Try again later. </p>"
   }
 }
