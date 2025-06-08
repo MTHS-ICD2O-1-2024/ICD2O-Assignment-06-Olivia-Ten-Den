@@ -8,16 +8,16 @@
 
 async function getFact() {
   try {
-    const factsJSON = await fetch(
-      "https://api.openweathermap.org/data/2.5/weather?lat=45.4211435&lon=-75.6900574&appid=fe1d80e1e103cff8c6afd190cad23fa5"
+    let factsJSON = await fetch(
+      "https://uselessfacts.jsph.pl/api/v2/facts/random?language=en"
     )
-    const jsonRandomFact = await factsJSON.json()
-    const randomFact = jsonRandomFact.text
+    let jsonRandomFact = await factsJSON.json()
+    let randomFact = jsonRandomFact.text
 
 
     // output
     document.getElementById("randomFact").innerHTML =
-      "<p> Your random useless fact is: " + randomFact + " .</p>"
+      "<h4> Your random useless fact is:</h4><h4>" + randomFact + "</h4>"
   }
   catch (error) {
     "<p> Sorry, the information source for these Fun Facts is not working at this moment. Try again later. </p>"
