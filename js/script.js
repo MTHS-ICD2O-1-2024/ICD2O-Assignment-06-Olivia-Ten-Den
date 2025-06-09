@@ -17,8 +17,7 @@ async function getFact() {
     // output
     document.getElementById("randomFact").innerHTML =
       "<h4> Your random useless fact is:</h4><h4>" + randomFact + "</h4>"
-  }
-  catch (error) {
-    "<p> Sorry, the information source for these Fun Facts is not working at this moment. Try again later. </p>"
+  } catch (error) {
+    ; ("<p> Sorry, the information source for these Fun Facts is not working at this moment. Try again later. </p>")
   }
 }
