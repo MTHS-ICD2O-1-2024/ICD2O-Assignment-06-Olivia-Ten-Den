@@ -14,7 +14,6 @@ async function getFact() {
     let jsonRandomFact = await factsJSON.json()
     let randomFact = jsonRandomFact.text
 
-
     // output
     document.getElementById("randomFact").innerHTML =
       "<h4> Your random useless fact is:</h4><h4>" + randomFact + "</h4>"
